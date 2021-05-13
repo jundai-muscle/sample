@@ -1,0 +1,87 @@
+<template>
+<div id="app">
+  <bulma-accordion initial-open-item="0">
+      <bulma-accordion-item>
+        <h4 slot="title">タブ１</h4>
+      </bulma-accordion-item>
+      <bulma-accordion-item>
+        <h4 slot="title">タブ２</h4>
+        <p slot="content">
+         タブの文章はここ
+        </p>
+      </bulma-accordion-item>
+      <bulma-accordion-item>
+          <h4 slot="title">タブ3</h4>
+          <p slot="content">
+              タブの文章はここ
+          </p>
+        </bulma-accordion-item>
+  </bulma-accordion>
+</div>
+</template>
+
+<script>
+import {BulmaAccordion, BulmaAccordionItem} from 'vue-bulma-accordion'
+export default {
+    components:{
+        BulmaAccordion,
+        BulmaAccordionItem
+    },
+}
+</script>
+
+<template>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+      height="80px"
+    >
+    <div class="sslide">
+      
+      <Slide color="primary" height="1000px">
+      </Slide>
+      <span class="appname">
+        Memo App
+      </span>
+    </div>
+      <v-spacer></v-spacer>
+      <v-col cols="4">
+      <v-text-field></v-text-field>
+      </v-col>
+          <v-btn target="_blank" text>
+            <span class="mr-2">Login</span>
+          </v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <accordion></accordion>
+      <router-view/>
+    </v-main>
+  </v-app>
+</template>
+
+<script>
+import {Slide} from 'vue-burger-menu'
+import accordion from '@/components/accordion.vue'
+
+export default {
+  name: 'App',
+  components:{
+    Slide,
+    accordion
+  },
+};
+</script>
+
+<style scoped>
+
+.appname{
+  position: relative;
+  left:70px;
+  top:8px;
+  font-size:20px;
+}
+
+</style>
